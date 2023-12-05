@@ -50,6 +50,14 @@ void elo::setElo(int sVal){
     score = sVal;
 }
 
+void elo::win(const elo& other){
+
+}
+
+void elo::lose(const elo& other){
+    
+}
+
 /**
  * OPERATORS
 */
