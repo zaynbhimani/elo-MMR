@@ -9,7 +9,7 @@ const int K_CONST = 32;
 
 class elo{
     private:
-    int score;
+    int score = 0;
 
     public:
     //constructors
@@ -75,6 +75,8 @@ void elo::lose(const elo& other){
 */
 elo& elo::operator=(const elo& rhs){
     score = rhs.score;
+
+    return *this;
 }
 
 auto elo::operator==(const elo& rhs) const{
