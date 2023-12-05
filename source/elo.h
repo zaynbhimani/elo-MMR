@@ -2,6 +2,10 @@
 #define ELO_H
 
 #include <compare>
+#include <cmath>
+
+const int E_CONST = 400;
+const int K_CONST = 32;
 
 class elo{
     private:
@@ -51,11 +55,19 @@ void elo::setElo(int sVal){
 }
 
 void elo::win(const elo& other){
+    double eloDiff = (other.getElo() - score)/E_CONST;
 
+    double eA = 1/(1 + pow(10, eloDiff)); //probability of win
+
+    score = score + K_CONST*(1 - eA);
 }
 
 void elo::lose(const elo& other){
-    
+    double eloDiff = (other.getElo() - score)/E_CONST;
+
+    double eA = 1/(1 + pow(10, eloDiff)); //probability of win
+
+    score = score + K_CONST*(0 - eA);
 }
 
 /**
