@@ -8,7 +8,7 @@ int main(){
     elo playerD(1500);
 
     for(int i = 0; i<20; i++)
-        battle(playerA, playerB);
+        battle(playerC, playerD);
 
     return 0;
 }

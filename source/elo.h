@@ -68,6 +68,9 @@ void elo::lose(const elo& other){
     double eA = 1/(1 + pow(10, eloDiff)); //probability of win
 
     score = score + K_CONST*(0 - eA);
+
+    if(score < 0)
+        score = 0;
 }
 
 /**
