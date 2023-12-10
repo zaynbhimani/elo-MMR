@@ -40,6 +40,9 @@ class elo{
     auto operator<=(const elo& rhs) const;
     auto operator>=(const elo& rhs) const;
 
+    int operator-(const elo& rhs) const;
+    int operator+(const elo& rhs) const;
+
 };
 
 /**
@@ -99,6 +102,13 @@ auto elo::operator<=(const elo& rhs) const{
 }
 auto elo::operator>=(const elo& rhs) const{
     return (score >= rhs.score);
+}
+
+int elo::operator-(const elo& rhs) const{
+    return getElo() - rhs.getElo();
+}
+int elo::operator+(const elo& rhs) const{
+    return getElo() + rhs.getElo();
 }
 
 #endif

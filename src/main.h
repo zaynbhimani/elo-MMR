@@ -4,16 +4,28 @@
 #include <iostream>
 
 #include "elo.h"
+#include "player.h"
+#include "pseudoList.h"
 
-void battle(elo& winner, elo& loser){
-    std::cout << "  Winner's starting elo: " << winner.getElo() << "\n";
-    std::cout << "  Loser's starting elo: " << loser.getElo() << "\n";
+using namespace PSEUDOLIST;
 
-    winner.win(loser);
-    loser.lose(winner);
+struct match{
+    player player1;
+    player player2;
 
-    std::cout << "  Winner's new elo: " << winner.getElo() << "\n";
-    std::cout << "  Loser's new elo: " << loser.getElo() << "\n";
+    match(player p1, player p2): player1{p1}, player2{p2}{};
+};
+
+match matchmaker(pseudoList<player>& playerLobby){
+
+    auto it = playerLobby.begin();
+    auto it_end = playerLobby.end();
+
+    player nextPlayer = *it;
+
+    while(it != it_end){
+        (*it);
+    }
 }
 
 #endif
