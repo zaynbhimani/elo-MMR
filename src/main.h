@@ -23,7 +23,7 @@ struct match{
 int partition(pseudoVector<player>& A, int low, int high){
 
     int i = low;
-    int j = high;
+    int j = high + 1;
     player P = A[low];
 
     while(true){
