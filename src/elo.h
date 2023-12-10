@@ -4,12 +4,11 @@
 #include <compare>
 #include <cmath>
 
-const int E_CONST = 400;
-const int K_CONST = 32;
-
 class elo{
     private:
     int score = 0;
+    int eVal = 400;
+    int kVal = 32;
 
     public:
     //constructors
@@ -58,11 +57,11 @@ void elo::setElo(int sVal){
 }
 
 void elo::win(const elo& other){
-    score = score + K_CONST*(1 - winChance(other));
+    score = score + kVal*(1 - winChance(other));
 }
 
 void elo::lose(const elo& other){
-    score = score + K_CONST*(0 - winChance(other));
+    score = score + kVal*(0 - winChance(other));
 
     if(score < 0)
         score = 0;
@@ -72,7 +71,7 @@ void elo::lose(const elo& other){
  * OTHER FUNCTIONS
 */
 double elo::winChance(const elo& other){
-    double eloDiff = (other.getElo() - score)/E_CONST;
+    double eloDiff = (other.getElo() - score)/eVal;
 
     double eA = 1/(1 + pow(10, eloDiff)); //probability of win
 }
