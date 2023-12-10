@@ -7,12 +7,11 @@
 
 using std::string;
 
-const int START_ELO = 1200;
-
 class player{
     private:
     string name;
     elo rating;
+    int START_ELO = 1200;
 
     public:
     //constructors
@@ -34,5 +33,32 @@ class player{
     //deconstructor
     ~player() = default;
 };
+
+/**
+ * ACCESSORS
+*/
+string player::getName() const{
+    return name;
+}
+
+elo player::getRating() const{
+    return rating;
+}
+
+/**
+ * MODIFIERS
+*/
+void player::setName(string nm){
+    name = nm;
+}
+
+void player::setRating(int sc){
+    rating = elo(sc);
+}
+
+void player::setRating(elo e1){
+    rating = e1;
+}
+
 
 #endif
