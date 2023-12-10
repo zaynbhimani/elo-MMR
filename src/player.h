@@ -15,6 +15,7 @@ class player{
 
     public:
     //constructors
+    player() = default;
     player(string nm): name{nm}, rating{elo(START_ELO)}{};
     player(string nm, int sc): name{nm}, rating{elo(sc)}{};
     player(string nm, elo e1): name{nm}, rating{e1}{};

@@ -16,16 +16,9 @@ struct match{
     match(player p1, player p2): player1{p1}, player2{p2}{};
 };
 
-match matchmaker(pseudoList<player>& playerLobby){
+pseudoList<match> matchmaker(pseudoList<player>& playerLobby){
 
-    auto it = playerLobby.begin();
-    auto it_end = playerLobby.end();
-
-    player nextPlayer = *it;
-
-    while(it != it_end){
-        (*it);
-    }
+    
 }
 
 #endif
