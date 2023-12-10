@@ -26,6 +26,9 @@ class elo{
     void win(const elo& other);
     void lose(const elo& other);
 
+    //other functions
+    double winChance(const elo& other);
+
     //deconstructor
     ~elo() = default;
 
@@ -55,22 +58,23 @@ void elo::setElo(int sVal){
 }
 
 void elo::win(const elo& other){
-    double eloDiff = (other.getElo() - score)/E_CONST;
-
-    double eA = 1/(1 + pow(10, eloDiff)); //probability of win
-
-    score = score + K_CONST*(1 - eA);
+    score = score + K_CONST*(1 - winChance(other));
 }
 
 void elo::lose(const elo& other){
-    double eloDiff = (other.getElo() - score)/E_CONST;
-
-    double eA = 1/(1 + pow(10, eloDiff)); //probability of win
-
-    score = score + K_CONST*(0 - eA);
+    score = score + K_CONST*(0 - winChance(other));
 
     if(score < 0)
         score = 0;
+}
+
+/**
+ * OTHER FUNCTIONS
+*/
+double elo::winChance(const elo& other){
+    double eloDiff = (other.getElo() - score)/E_CONST;
+
+    double eA = 1/(1 + pow(10, eloDiff)); //probability of win
 }
 
 /**
