@@ -135,7 +135,7 @@ namespace pVec{
             //it is iterator - begin()
         void erase(int index);
 
-        void push_back(T& value);
+        void push_back(T value);
         void pop_back();
         void pop_front();
 
@@ -403,7 +403,7 @@ void pVec::pseudoVector<T>::erase(int index){
 }
 
 template<typename T>
-void pVec::pseudoVector<T>::push_back(T& value){
+void pVec::pseudoVector<T>::push_back(T value){
 
     incSize();
 

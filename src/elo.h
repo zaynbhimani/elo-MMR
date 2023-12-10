@@ -77,6 +77,8 @@ double elo::winChance(const elo& other){
     double eloDiff = (other.getElo() - score)/eVal;
 
     double eA = 1/(1 + pow(10, eloDiff)); //probability of win
+
+    return eA;
 }
 
 /**

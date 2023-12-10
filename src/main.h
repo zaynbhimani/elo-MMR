@@ -13,7 +13,10 @@ struct match{
     player player1;
     player player2;
 
+    match() = default;
     match(player p1, player p2): player1{p1}, player2{p2}{};
+
+    match(const match& other): player1{other.player1}, player2{other.player2}{};
 };
 
 //sorting functions
@@ -62,7 +65,21 @@ pseudoVector<match> matchmaker(pseudoVector<player>& playerLobby){
 
     pseudoVector<match> matches;
 
+    //TESTING
+    for(auto& player : playerLobby){
+        cout << player.getName() << endl;
+        cout << "  " << player.getRating().getElo() << endl;
+    }
+    //TESTING
+
     quickSort(playerLobby, 0, playerLobby.getSize() - 1);
+
+    //TESTING
+    for(auto& player : playerLobby){
+        cout << player.getName() << endl;
+        cout << "  " << player.getRating().getElo() << endl;
+    }
+    //TESTING
 
     while(playerLobby.getSize() >= 2){
         player p1 = playerLobby.back();
